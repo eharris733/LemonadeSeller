@@ -10,10 +10,8 @@ Acquiring Business’: You have to have enough money to buy the new business.
 Catch: The business, (while they progressively make you more and more money) become less and less ethical. In this sense, the high score will be the lowest possible score. People can submit high scores by clicking an ever-present button called quit and submit high score. 
 
 
-
-
 Page Layout: 
-
+TBD
 
 * Home Page will let you start a game and see highscores
 * Highscore page shows highscores (highscores are stored in firebase)
@@ -24,6 +22,7 @@ Game Design:
 Player
  - Starts with a lemonade stand
  - Clicks on businesses over time
+ - Player has a wallet
 
 Businesses
  - Cost a certain amount to buy
@@ -35,7 +34,8 @@ Businesses
  - The color changes as they grow
 
  Game Play:
-  - Player starts with a lemonade stand
+  - Player starts with a lemonade stand and no money
   - Clicking on a business means that you earn money
   - Goal of the game is to make as much money before the businesses become evil
   - Game is over when you quit the game
+  - Your moral fiber is evaluated
