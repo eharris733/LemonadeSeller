@@ -18,3 +18,24 @@ Page Layout:
 * Home Page will let you start a game and see highscores
 * Highscore page shows highscores (highscores are stored in firebase)
 * Game page is a scrolling page consisting of unlockable buttons
+
+Game Design:
+
+Player
+ - Starts with a lemonade stand
+ - Clicks on businesses over time
+
+Businesses
+ - Cost a certain amount to buy
+ - Acquire money over time through clicks
+ - Name
+ - Business model
+ - Incremental increase on click is different for each business
+ - The business grows more evil over time as it acquires value
+ - The color changes as they grow
+
+ Game Play:
+  - Player starts with a lemonade stand
+  - Clicking on a business means that you earn money
+  - Goal of the game is to make as much money before the businesses become evil
+  - Game is over when you quit the game
