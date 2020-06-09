@@ -6,7 +6,7 @@ void main () => runApp(MainPage());
 
 class MainPage extends StatelessWidget{
   Widget build(BuildContext context) {
-    final title = 'Sell Lemonade';
+    final title = 'Sell Your Car';
 
     return MaterialApp(
       title: title,
