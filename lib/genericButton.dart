@@ -9,10 +9,10 @@ class GenericButton extends StatefulWidget {
 
 
   class _ButtonState extends State<GenericButton>{
-  int money = 0;
+  int _money = 0;
   void _makeMoney(){
     setState(() {
-      money++;
+      _money++;
     });
   }
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class GenericButton extends StatefulWidget {
           color: Colors.lightGreen,
           borderRadius: BorderRadius.circular(24.0),
         ),
-        child: Text('Sold: $money'),
+        child: Text('Sold: $_money'),
       ),
     );
   }
