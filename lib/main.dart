@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:test_hello_world/genericButton.dart';
+import 'package:get_it/get_it.dart';
 
-void main () => runApp(MainPage());
+final getIt = GetIt.instance;
+void setup() {
+  getIt.registerSingleton<IncrementBusiness>(IncrementBusiness());
+}
+
+void main () {
+  runApp(MainPage());
+  setup();
+} 
 
 
 class MainPage extends StatelessWidget{
@@ -31,10 +40,9 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
         Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        //crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[GenericButton(),
-        GenericButton(),
-        GenericButton(),]
+        children: <Widget>[GenericButton(0),
+        GenericButton(1),
+        GenericButton(2),]
         ),]
     ));
   }
