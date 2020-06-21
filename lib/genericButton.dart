@@ -38,41 +38,17 @@ GenericButton(int l){
 
 
   class IncrementBusiness {
-    BehaviorSubject _lemon_money = BehaviorSubject.seeded(0);
-    BehaviorSubject _ice_money = BehaviorSubject.seeded(0);
-    BehaviorSubject _dog_money = BehaviorSubject.seeded(0);
-    Stream get streamLemon => _lemon_money.stream;
-    int get currentLemon => _lemon_money.value;
-    Stream get streamIce => _ice_money.stream;
-    int get currentIce => _ice_money.value;
-    Stream get streamDog => _dog_money.stream;
-    int get currentDog => _dog_money.value;
-
+    var businessStreams = new List(14);
+    void init(){
+      for (int i = 0; i < businessStreams.length; i++){
+        businessStreams[i] = BehaviorSubject.seeded(0);
+      }
+    }    
     makeMoney(int l){
-      if(l == 0) {
-        _lemon_money.add(currentLemon + 1);
-      }
-      else if(l == 1){
-        _ice_money.add(currentIce + 1);
-      }
-      else if(l==2){
-        _dog_money.add(currentDog + 1);
-      }
+      businessStreams[l].add(getStream(l).value + 1);
   }
-  Stream getStream(int l){
-    if (l == 0)
-    {
-      return streamLemon;
-    }
-    else if (l == 1)
-    {
-      return streamIce;
-    }
-    else if(l == 2)
-    {
-      return streamDog;
-    }
-    else return null;
+  BehaviorSubject getStream(int l){
+    return businessStreams[l];
   }
   }
   
