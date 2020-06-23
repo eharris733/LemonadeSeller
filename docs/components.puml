@@ -1,0 +1,7 @@
+@startuml
+Player -> Business: acquire_business()
+Player -> Business: sell_business()
+Business -> Wallet: spend_money(cost)
+Business -> Wallet: earn_money(value)
+Wallet --> "Game UI": print update
+@enduml
