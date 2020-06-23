@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'main.dart';
+import 'package:test_hello_world/incrementBusiness.dart';
 
 class GenericButton extends StatelessWidget{
   //array of business products
@@ -35,46 +36,6 @@ GenericButton(int l){
   }
 }
 
-
-
-  class IncrementBusiness {
-    BehaviorSubject _lemon_money = BehaviorSubject.seeded(0);
-    BehaviorSubject _ice_money = BehaviorSubject.seeded(0);
-    BehaviorSubject _dog_money = BehaviorSubject.seeded(0);
-    Stream get streamLemon => _lemon_money.stream;
-    int get currentLemon => _lemon_money.value;
-    Stream get streamIce => _ice_money.stream;
-    int get currentIce => _ice_money.value;
-    Stream get streamDog => _dog_money.stream;
-    int get currentDog => _dog_money.value;
-
-    makeMoney(int l){
-      if(l == 0) {
-        _lemon_money.add(currentLemon + 1);
-      }
-      else if(l == 1){
-        _ice_money.add(currentIce + 1);
-      }
-      else if(l==2){
-        _dog_money.add(currentDog + 1);
-      }
-  }
-  Stream getStream(int l){
-    if (l == 0)
-    {
-      return streamLemon;
-    }
-    else if (l == 1)
-    {
-      return streamIce;
-    }
-    else if(l == 2)
-    {
-      return streamDog;
-    }
-    else return null;
-  }
-  }
   
   
   

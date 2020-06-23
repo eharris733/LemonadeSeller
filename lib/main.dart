@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:test_hello_world/genericButton.dart';
 import 'package:get_it/get_it.dart';
-
+import 'package:test_hello_world/incrementBusiness.dart';
 final getIt = GetIt.instance;
 void setup() {
   getIt.registerSingleton<IncrementBusiness>(IncrementBusiness());
+  getIt<IncrementBusiness>().init();
 }
 
 void main () {
