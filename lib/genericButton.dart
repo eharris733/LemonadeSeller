@@ -3,12 +3,13 @@ import 'package:rxdart/rxdart.dart';
 import 'main.dart';
 import 'package:test_hello_world/incrementBusiness.dart';
 
-class GenericButton extends StatelessWidget{
+class BusinessCard extends StatelessWidget{
   //array of business products
+  // data that streams in about the business
 var bTypes = ['Lemonade','Icecream','Hotdogs'];
 //the level of business person has unlocked with this button
 int level;
-GenericButton(int l){
+BusinessCard(int l){
     level = l;
 }
  Widget build(BuildContext context) {
@@ -35,6 +36,7 @@ GenericButton(int l){
     );
   }
 }
+
 
   
   

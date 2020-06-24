@@ -1,0 +1,25 @@
+{
+  "businesses": [
+    {
+      "name": "Lemonade Stand",
+      "cost_to_buy": 0,
+      "earns": 1,
+      "level": 1,
+      "evilness_rank": 0
+    },
+    {
+      "name": "Ice Cream Stand",
+      "cost_to_buy": 1,
+      "earns": 2,
+      "level": 2,
+      "evilness_rank": 1
+    },
+    {
+      "name": "Hot Dog Stand",
+      "cost_to_buy": 1,
+      "earns": 2,
+      "level": 2,
+      "evilness_rank": 1
+    }
+  ]
+}

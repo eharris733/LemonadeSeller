@@ -1,6 +1,6 @@
 # Lemonade Seller
 
-A new Flutter project.
+Welcome to our ironic hipster game where you can lose your soul to capitalist greed, just like in real life! 
 
 ## Getting Started
 
@@ -24,11 +24,11 @@ Business Progression:
 3. Hot Dog Stand
 4. Fast Food Stand
 5. Cleaning Products Salesman
-6. Soliticiting Cleaning Products Salesman
+6. Soliciting Cleaning Products Salesman
 7. Social Media Guru
 8. Influential Website on body-shaming
 9. Social Media Platform selling peoples data
-10. Pharmeseutical company
+10. Pharmaceutical company
 11. Illegal drug provider
 12. Oil Tycoon
 13. Toxic Power Plant with child labor

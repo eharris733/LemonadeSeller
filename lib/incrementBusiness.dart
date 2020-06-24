@@ -12,4 +12,4 @@ class IncrementBusiness {
   BehaviorSubject getStream(int l){
     return businessStreams[l];
   }
-  }
+}
