@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lemonade_seller/ui/business_card_ui.dart';
+import 'package:lemonade_seller/ui/wallet_ui.dart';
 
 class MyHomePage extends StatelessWidget {
   final String title;
@@ -18,7 +19,7 @@ class MyHomePage extends StatelessWidget {
               Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    BusinessCard(),
+                    Wallet(),
                     BusinessCard(),
                   ]
               ),]

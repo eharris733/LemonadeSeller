@@ -1,37 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:lemonade_seller/bloc/bloc_provider.dart';
-import 'package:lemonade_seller/bloc/economy_bloc.dart';
+import 'package:lemonade_seller/bloc/business_bloc.dart';
+import 'package:lemonade_seller/models/Business.dart';
 
-class BusinessCard extends StatelessWidget{
+class BusinessCard extends StatelessWidget {
   Widget build(BuildContext context) {
-    final EconomyBloc bloc = BlocProvider.of<EconomyBloc>(context);
+    final BusinessBloc _business = BlocProvider.of<BusinessBloc>(context);
 
-    // The GestureDetector wraps the button.
-    return GestureDetector(      // When tapped, increment money.
-      onTap: () {
-        bloc.incrementCounter.add(null);
-      },
-      // The custom button
-      child: Container(
-          padding: EdgeInsets.all(36.0),
-          decoration: BoxDecoration(
-            color: Colors.lightGreen,
-            borderRadius: BorderRadius.circular(24.0),
-          ),
-          //child: Text("Lemonade Sold:  ${getIt<IncrementBusiness>().current}"),
-          child:StreamBuilder(
-            stream: bloc.outCounter,
-            initialData: 0,
-            builder: (BuildContext context, AsyncSnapshot<int> snapshot){
-              return Text('You hit me: ${snapshot.data} times');
-            }
+    List<Widget> renderWidgets(businesses) {
+      return businesses.map<Widget>((biz) {
+        return new GestureDetector(
+          onTap: () {
+            _business.incrementCounter.add(biz.id);
+          },
+          child: Row(
+            children: [
+              Text(biz.name),
+              Container(
+                padding: EdgeInsets.all(36.0),
+                decoration: BoxDecoration(
+                  color: Colors.lightGreen,
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+                child: Text('Value ${biz.value}'),
+              ),
+            ]
           )
-      ),
+        );
+      }).toList();
+    }
+
+    return Container(
+        child: new StreamBuilder(
+            stream: _business.getBusinesses,
+            builder: (context, AsyncSnapshot<List<Business>> snapshot) {
+              var businesses = snapshot.data;
+              return Column(
+                  children: renderWidgets(businesses)
+              );
+            })
     );
   }
 }
-
-
 
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'bloc/economy_bloc.dart';
+import 'bloc/wallet_bloc.dart';
+import 'bloc/business_bloc.dart';
 import 'bloc/bloc_provider.dart';
 import 'ui/home_ui.dart';
 
@@ -13,9 +14,12 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<EconomyBloc>(
-        bloc: EconomyBloc(),
-        child: MainPage(),
+      home: BlocProvider<WalletBloc>(
+        bloc: WalletBloc(),
+        child: BlocProvider<BusinessBloc>(
+            bloc: BusinessBloc(),
+            child: MainPage()
+        ),
       ),
     );
   }
