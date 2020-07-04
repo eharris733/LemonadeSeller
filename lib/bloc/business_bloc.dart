@@ -10,19 +10,19 @@ class BusinessBloc implements BlocBase {
   List<Business> businesses;
   BehaviorSubject<List<Business>> _businessController;
 
-  BusinessBloc({this.businesses}) {
-    this.businesses = BusinessData().getAllBusiness();
+  BusinessBloc() {
+    businesses = BusinessData().getAllBusiness();
     _actionController.stream.listen(_handleLogic);
-    _businessController = BehaviorSubject<List<Business>>.seeded(this.businesses);
+    _businessController = BehaviorSubject<List<Business>>.seeded(businesses);
   }
 
   StreamSink<List<Business>> get _inAdd => _businessController.sink;
   Stream<List<Business>> get getBusinesses => _businessController.stream;
 
   void _handleLogic(id) {
-  var index = this.businesses.indexWhere((element) => element.id == id);
-  this.businesses[index].value += this.businesses[index].earns;
-   _inAdd.add(this.businesses);
+  var index = businesses.indexWhere((element) => element.id == id);
+  businesses[index].value += businesses[index].earns;
+   _inAdd.add(businesses);
   }
 
   BehaviorSubject _actionController = BehaviorSubject();

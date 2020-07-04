@@ -1,13 +1,32 @@
 import 'dart:async';
-import 'package:lemonade_seller/models/Business.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'bloc_provider.dart';
 
 class WalletBloc implements BlocBase {
-  WalletBloc();
+  int _value;
+
+  WalletBloc(){
+    _value = 0;
+    _updateController.stream.listen(_handleLogic);
+  }
+
+  void _handleLogic(earned) {
+    var value = _value + earned;
+    _inAdd.add(value);
+  }
+
+  BehaviorSubject<int> _valueController = BehaviorSubject<int>.seeded(0);
+  StreamSink<int> get _inAdd => _valueController.sink;
+  Stream<int> get getMoney => _valueController.stream;
+
+  BehaviorSubject _updateController = BehaviorSubject();
+  StreamSink get addMoney => _updateController.sink;
+
 
   void dispose() {
+    _updateController.close();
+    _valueController.close();
   }
 
 }
