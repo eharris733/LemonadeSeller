@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_hello_world/genericButton.dart';
+import 'package:test_hello_world/business_card.dart';
 import 'package:get_it/get_it.dart';
 import 'package:test_hello_world/incrementBusiness.dart';
 import 'package:test_hello_world/wallet.dart';
