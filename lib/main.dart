@@ -1,51 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:test_hello_world/genericButton.dart';
-import 'package:get_it/get_it.dart';
-import 'package:test_hello_world/incrementBusiness.dart';
-final getIt = GetIt.instance;
-void setup() {
-  getIt.registerSingleton<IncrementBusiness>(IncrementBusiness());
-  getIt<IncrementBusiness>().init();
-}
+import 'bloc/wallet_bloc.dart';
+import 'bloc/business_bloc.dart';
+import 'bloc/bloc_provider.dart';
+import 'ui/home_ui.dart';
 
-void main () {
-  runApp(MainPage());
-  setup();
-} 
+void main() => runApp(new MyApp());
 
-
-class MainPage extends StatelessWidget{
+class MyApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    final title = 'Sell Lemonade';
-
-    return MaterialApp(
-      title: title,
-      home: MyHomePage(title: title),
+    return new MaterialApp(
+      title: 'Streams Demo',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: BlocProvider<WalletBloc>(
+        bloc: WalletBloc(),
+        child: BlocProvider<BusinessBloc>(
+            bloc: BusinessBloc(),
+            child: MainPage()
+        ),
+      ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  @override
+class MainPage extends StatelessWidget{
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        
+    final title = 'Lemonade Seller';
+
+    return MaterialApp(
+      title: title,
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-        Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[GenericButton(0),
-        GenericButton(1),
-        GenericButton(2),]
-        ),]
-    ));
+      home: MyHomePage(title: title),
+    );
   }
 }
-
