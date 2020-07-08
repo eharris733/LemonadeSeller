@@ -14,7 +14,7 @@ class BusinessCard extends StatelessWidget {
         return new GestureDetector(
           onTap: () {
             _business.incrementCounter.add(biz.id);
-            _wallet.addMoney.add(biz.value);
+            _wallet.addMoney.add(biz.earns);
           },
           child: Row(
             children: [

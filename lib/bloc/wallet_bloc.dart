@@ -12,8 +12,7 @@ class WalletBloc implements BlocBase {
   }
 
   void _handleLogic(earned) {
-    var value = _value + earned;
-    _inAdd.add(value);
+    _inAdd.add(_value += earned);
   }
 
   BehaviorSubject<int> _valueController = BehaviorSubject<int>.seeded(0);
